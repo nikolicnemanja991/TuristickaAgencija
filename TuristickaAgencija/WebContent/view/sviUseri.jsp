@@ -49,10 +49,12 @@
 					<c:param name="index" value="${u.idUser}"></c:param>
 				</c:url>">dodaj</a>
 				
-<%-- 				<c:url var="link" value="didajBalance.jsp">
-					<c:param name="index" value="${u.idUser}"></c:param>
+
+				
+<%-- 				<c:url var = "link" value = "/view/dodajBalance.jsp"   > 
+					<c:param  name = "index" value = "${u.idUser}"/>
 				</c:url>
-				<a href="${link}"></a> --%>
+				<a href = "${link}" > dodaj </a>  --%>
 				
 				
 			</td>
