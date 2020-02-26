@@ -24,14 +24,16 @@ public class DodajTransportServlet extends HttpServlet {
 		String popust = request.getParameter("popust");
 		String tipPrevoza = request.getParameter("radioDugme");
 		String idDestinacija = request.getParameter("destinacija");
+		
 		TransportService service = new TransportService();
 		
 		// model za bazu
 		Transport transport = new Transport();
+		
 		if(cena != null) {
 			transport.setCena(Double.parseDouble(cena));
 		}
-		if(popust != null) {
+		if(!(popust.trim()).isEmpty()) {
 			transport.setPopust(Double.parseDouble(popust));
 		}else {
 			transport.setPopust(0.0);
@@ -41,9 +43,20 @@ public class DodajTransportServlet extends HttpServlet {
 			service.podesiTipTransporta(tipPrevoza, transport);
 		}
 		
-		List<Destinacija> lista = (List<Destinacija>)request.getAttribute("listaDestinacija");
+		Destinacija destinacija = service.vratiDestinacijuPoId(idDestinacija);
 		
-		System.out.println("Id prve destinacije" + lista.get(0).getIdDestinacija());
+		transport.setDestinacija(destinacija);
+		
+		boolean daLiJeUbacioTransport = service.snimiTransport(transport);
+		
+		if(daLiJeUbacioTransport) {
+			response.sendRedirect("view/adminPage.jsp");
+		}else {
+			response.sendRedirect("view/dodajTransport.jsp");
+		}
+		
+//		List<Destinacija> lista = (List<Destinacija>)request.getAttribute("listaDestinacija");
+//		System.out.println("Id prve destinacije" + lista.get(0).getIdDestinacija());
 		
 	}
 

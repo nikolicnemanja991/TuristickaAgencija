@@ -22,4 +22,14 @@ public class TransportService {
 		
 	}
 
+	public Destinacija vratiDestinacijuPoId(String idDestinacija) {
+		// TODO Auto-generated method stub
+		return dao.vratiDestinacijuPoId(idDestinacija);
+	}
+
+	public boolean snimiTransport(Transport transport) {
+		// TODO Auto-generated method stub
+		return dao.snimiTransport(transport);
+	}
+
 }

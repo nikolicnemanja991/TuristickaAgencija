@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.Destinacija"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -19,10 +20,8 @@
 	
 	<% 
 	List<Destinacija> lista = (List<Destinacija>)request.getAttribute("listaDestinacija");
-// 	request.setAttribute("listaDestinacija2", lista);
-// 	RequestDispatcher dispatcher = request.getRequestDispatcher("view/dodajTransport.jsp");
-// 	dispatcher.forward(request, response);
 	%>
+	
 	
 	
 	<form action="DodajTransportServlet" method="get">
@@ -34,6 +33,7 @@
 		</select>
 		
 		<br><br>
+		
 		
 		<input type="radio" name="radioDugme" value="sopstveni">
 		<label for="male">sopstveni</label><br>

@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import model.Destinacija;
+import model.Transport;
 
 public class TransportDAO {
 	
@@ -39,6 +40,46 @@ public class TransportDAO {
 		}
 		
 		
+	}
+
+	public Destinacija vratiDestinacijuPoId(String idDestinacija) {
+		
+		Destinacija destinacija = new Destinacija();
+		
+		Integer id = Integer.parseInt(idDestinacija);
+		
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		
+		try {
+			
+			// metoda getSingleResult vraca prvi iz obrade upita, umesto get(0)
+			destinacija = (Destinacija)session.createQuery("from Destinacija where idDestinacija = :id")
+								.setParameter("id", id)
+								.getResultList()
+								.get(0);
+
+			
+			session.getTransaction().commit();
+			return destinacija;
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			return null;
+		}
+	}
+
+	public boolean snimiTransport(Transport transport) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+		
+		try {
+			session.save(transport);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			return false;
+		}
 	}
 
 }
