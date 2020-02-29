@@ -24,7 +24,7 @@ public class BirajDestinacijuServlet extends HttpServlet {
 		
 		if(destinacije != null) {
 			request.setAttribute("destinacije", destinacije);
-			RequestDispatcher dispacher = request.getRequestDispatcher("view/biraDestinaciju.jsp");
+			RequestDispatcher dispacher = request.getRequestDispatcher("view/birajDestinaciju.jsp");
 			dispacher.forward(request, response);
 		}else {
 			response.sendRedirect("view/userPage.jsp");
