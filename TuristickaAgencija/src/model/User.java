@@ -18,7 +18,7 @@ public class User {
 	private Integer idUser;
 	private String userName;
 	private String password;
-	private Double balance = 0.0;
+	private Double balance;
 	@Enumerated
 	private Rola rola;
 	@ElementCollection(fetch = FetchType.EAGER)

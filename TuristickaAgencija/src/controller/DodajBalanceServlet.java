@@ -16,7 +16,9 @@ import service.SviUseriService;
 @WebServlet("/DodajBalanceServlet")
 public class DodajBalanceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
@@ -27,17 +29,17 @@ public class DodajBalanceServlet extends HttpServlet {
 		
 		SviUseriService servis = new SviUseriService();
 		
-//		User user = new User();
-//		List<User> useri = servis.vratiSveUsere();
-//		
-//		for(User u: useri) {
-//			if(u.getIdUser()==idUser) {
-//				user = u;
-//			}
-//		}
+		User user = new User();
+		List<User> useri = servis.vratiSveUsere();
+		
+		for(User u: useri) {
+			if(u.getIdUser()==idUser) {
+				user = u;
+			}
+		}
 		
 		
-		boolean daLiSiDodaoBAlence = servis.dodajBalance(idUser, addBalance);
+		boolean daLiSiDodaoBAlence = servis.dodajBalance(user, addBalance);
 		
 		if(daLiSiDodaoBAlence) {
 			response.sendRedirect("view/sviUseri.jsp");

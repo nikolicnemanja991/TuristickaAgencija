@@ -14,14 +14,19 @@
 	<div id="plavaCrta">
 		LOGO
 	</div>
+
 	
-	<% User user = (User)session.getAttribute("userIzBaze"); %>
+	<% User user = (User)session.getAttribute("user"); %>
 
 	<h1>Hello <%=user.getUserName() %></h1>
 	
+
 	<c:set var="x" value="6"></c:set>
 	<c:set var="y" value="7"></c:set>
 	<c:set var="zbir" value="${x+y}"></c:set>
+	
+	
+	
 	
 	<br><br>
 	
@@ -38,10 +43,13 @@
 		</c:forEach>
 	</table>
 	
+	
 	<a href="../SviUseriServlet"><img alt="nema slike" src="../slike/globus.jpg"></a>
 	
 	<a href="dodajDestinaciju.jsp"><button>Dodaj destinaciju</button></a>
 	<a href="../ListaDestinacijaServlet"><button>Dodaj transport</button></a>
+	
+	
 
 </body>
 </html>

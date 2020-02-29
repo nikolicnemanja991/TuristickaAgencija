@@ -39,23 +39,23 @@ public class SviUseriDAO {
 		}
 	}
 
-	public boolean dodajBalance(Integer idUser, Double addBalance) {
+	public boolean dodajBalance(User u, Double addBalance) {
 		
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		
 		try {
 			
-			User user = session.get(User.class, idUser);
-			user.setBalance(user.getBalance() + addBalance);
+			User user = session.get(User.class, u.getIdUser());
+			user.setBalance(user.getBalance()+addBalance);
 			
 			session.update(user);
 			session.getTransaction().commit();
 			return true;
+			
 		} catch (Exception e){
 			session.getTransaction().rollback();
 			return false;
-		}
+		} 
 	}
 	
 	

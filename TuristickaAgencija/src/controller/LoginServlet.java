@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 		// Pravim session object
 		HttpSession session = request.getSession();
 		// Smestam usera u sesiju
-		session.setAttribute("userIzBaze", loginUser);
+		session.setAttribute("user", loginUser);
 		
 		if(loginUser != null) {
 			boolean daLiJeAdmin = service.daLiJeAdmin(loginUser);

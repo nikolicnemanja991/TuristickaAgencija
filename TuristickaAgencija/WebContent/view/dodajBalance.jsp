@@ -10,19 +10,19 @@
 <body>
 
 	<h1>Dodaj balans</h1>
-	<%-- Index: ${param.index} --%>
-
+	Index: ${param.index}
+	
 	<c:set var="idUser" value="${param.index}"></c:set>
 	
 	
-	idUser: ${idUser}
+	Index idUser: ${idUser}
 	
-	<form action="../DodajBalanceServlet" method="get">
-		<input type="hidden" name="id" value="${idUser}"/>
-		Upisi iznos: <input type="text" name="add"/>
-		<input type="submit" value="DODAJ"/>
+	<form action="../DodajBalanceServlet">
+		<input type="hidden" name="id" value="${idUser}">
+		Upisi iznos: <input type="text" name="add">
+		<input type="submit" value="DODAJ">
+	
 	</form>
-	
 
 </body>
 </html>
