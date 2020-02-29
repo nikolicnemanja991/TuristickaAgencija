@@ -18,9 +18,7 @@
 	
 	<h1>Transport</h1>
 	
-	<% 
-	List<Destinacija> lista = (List<Destinacija>)request.getAttribute("listaDestinacija");
-	%>
+	<% List<Destinacija> lista = (List<Destinacija>)request.getAttribute("listaDestinacija"); %>
 	
 	
 	
